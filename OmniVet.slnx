@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="OmniVet.Applications/OmniVet.Applications.csproj" />
+  <Project Path="OmniVet.AvaloniaUI/OmniVet.AvaloniaUI.csproj" />
+  <Project Path="OmniVet.Core/OmniVet.Core.csproj" />
+  <Project Path="OmniVet.Infrastructure/OmniVet.Infrastructure.csproj" />
+</Solution>
