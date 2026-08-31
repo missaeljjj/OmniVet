@@ -8,6 +8,6 @@ namespace OmniVet.Core.Interfaces.Repository
        public abstract IEnumerable<T> GetAll();
        public abstract void Add(T entity);
        public abstract void Update(T entity);
-       public abstract void Delete(int id);
+        public abstract void Delete(int id);
     }
 }

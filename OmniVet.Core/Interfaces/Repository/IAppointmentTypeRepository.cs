@@ -3,6 +3,7 @@
 namespace OmniVet.Core.Interfaces.Repository
 {
     public interface IAppointmentTypeRepository : IRepository<AppointmentType>
-    {
+    { 
+       
     }
 }

@@ -10,5 +10,5 @@ namespace OmniVet.Core.Interfaces.Repository
         IEnumerable<Appointment> GetByEstado(EstadoCita estado);
         IEnumerable<Appointment> GetByVet(int vetId, DateTime fecha);
         void CambiarEstado(int appointmentId, EstadoCita nuevoEstado);
-    }
-}
+    } 
+} 
