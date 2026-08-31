@@ -35,7 +35,7 @@ public abstract class TrasactionDetail : IEntity<int>
         set => field = value > 0 switch
         {
             true => throw new DomainException("La cantidad de productos no puede ser cero"),
-            - = field = value
+            _ = field = value
         };
     }
 
