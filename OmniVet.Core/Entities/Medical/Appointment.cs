@@ -1,42 +1,79 @@
-using OmniVet.Core.Entities.General;
-using OmniVet.Core.Entities.CRM;
+using OmnitVet.Core.Shared;
+using OmnitVet.Core.Exceptions;
+using OmniVet.Core.Shared;
 
-namespace OmniVet.Core.Entities.Medical
+
+namespace OmnitVet.Core.Entities.Medical
 {
-
-    public class Appointment : Entities.BaseEntity
+    public class Appointment :IEntity<int>
     {
-        public int IdPet { get; private set; }
-        public Pet? Pet { get; private set; }
-        public int IdVet { get; private set; }
-        public Vet? Vet { get; private set; }
-        public int IdAppointmentTypes { get; private set; }
-        public AppointmentType? AppointmentType { get; private set; }
-        public DateTime AppointmentDate { get; private set; }
-        public string Reason { get; private set; }
-        public string? Notes { get; private set; }
+        public int Id { get;}
 
-        public EstadoCita Estado { get; private set; } = new CitaEnEspera();
-
-        public Appointment(int id, int idPet, int idVet, int idAppointmentTypes, DateTime appointmentDate, string reason, string? notes = null) : base(id)
+        private int _petId;
+        public int PetId
         {
-            if (string.IsNullOrWhiteSpace(reason))
-                throw new ArgumentException("El motivo de la cita es obligatorio");
+            get => _petId;
+            set => _petId = value > 0 ? value : throw new AppDomainUnloadedException("El PetId es obligatorio.");
+        }
 
-            IdPet = idPet;
-            IdVet = idVet;
-            IdAppointmentTypes = idAppointmentTypes;
+        private int _vetId;
+        public int VetId
+        {
+            get => _vetId;
+            set => _vetId = value > 0 ? value : throw new AppDomainUnloadedException("El VetId es obligatorio.");
+
+        }
+        private DateTime _appointmentTypeId;
+        public DateTime AppointmentTypeId
+        {
+            get => _appointmentTypeId;
+            set => _appointmentTypeId = value > 0
+                ? value
+                : throw new AppDomainUnloadedException("El AppointmentTypeId es obligatorio.");
+
+        }
+    }
+    private DateTime _appointmentDate;
+        public DateTime AppointmentDate
+        {
+            get => _appointmentDate;
+            set => _appointmentDate = value != default
+                ? value
+                : throw new DomainException("La fecha de la cita es obligatoria.");
+        }
+
+        private string _reason;
+        public string Reason
+        {
+            get => _reason;
+            set => _reason = !string.IsNullOrWhiteSpace(value)
+                ? value
+                : throw new DomainException("El motivo de la cita es obligatorio.");
+        }
+
+        public string? Notes { get; set; } // No lleva validación
+
+        private string _status;
+        public string Status
+        {
+            get => _status;
+            set => _status = (value == "Programada" || value == "Cancelada" || value == "Completada")
+                ? value
+                : throw new DomainException("El estado de la cita no es válido.");
+        }
+
+        public Appointment(int id, int petId, int vetId, int appointmentTypeId, DateTime appointmentDate,
+            string reason, string? notes, string status)
+        {
+            Id = id;
+            PetId = petId;
+            VetId = vetId;
+            AppointmentTypeId = appointmentTypeId;
             AppointmentDate = appointmentDate;
             Reason = reason;
             Notes = notes;
-        }
-
-        public void CambiarEstado(EstadoCita nuevoEstado)
-        {
-            if (!Estado.PermiteCancelar && nuevoEstado is CitaCancelada)
-                throw new InvalidOperationException($"No se puede cancelar una cita en estado {Estado.Nombre}");
-            Estado = nuevoEstado;
+            Status = status;
         }
     }
-
+}
 }

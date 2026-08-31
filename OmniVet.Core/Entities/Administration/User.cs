@@ -1,44 +1,50 @@
-using System;
-using System.Linq;
-using OmniVet.Core.Entities.Medical;
+using OmnitVet.Core.Shared;
+using OmnitVet.Core.Exceptions;
+using OmniVet.Core.Medical;
+using OmniVet.Core.Shared;
+using System.Runtime.CompilerServices;
 
-namespace OmniVet.Core.Entities.Administration
+namespace OmnitVet.Core.Admimistration
 {
-    public class User : Entities.BaseEntity
+    public class User : IEntity<int>
     {
-        private static readonly string[] RolesValidos = { "Admin", "Veterinario", "Recepcionista" };
+        public int Id { get; }
 
-        public int? IdVet { get; private set; }
-        public Vet? Vet { get; private set; }
-        public string UserName { get; private set; }
-        public string UserPassword { get; private set; } 
-        public string Role { get; private set; }
-        public bool Status { get; private set; }
+        public int? IdVet { get; set; }
 
-        public User(int id, string userName, string userPasswordHash, string role, int? idVet = null) : base(id)
+        public string UserName
         {
-            if (string.IsNullOrWhiteSpace(userName))
-                throw new ArgumentException("El usuario es obligatorio");
-            if (string.IsNullOrWhiteSpace(userPasswordHash))
-                throw new ArgumentException("La contraseña es obligatoria");
-            if (!RolesValidos.Contains(role))
-                throw new ArgumentException($"Rol inválido: {role}");
+            get;
+            set => field = !string.IsNullOrWhiteSpace(value)
+                ? value.Trim()
+                : throw new AppDomainUnloadedException("El nombre del usuario es obligatorio.");  
+        }
+        public string UserPassword
+        {
+            get;
+            set => field = !string.IsNullOrWhiteSpace(value)
+                ? value
+                : throw new AppDomainUnloadedException("La contraseÃ±a es obligatoria.");
 
-            UserName = userName;
-            UserPassword = userPasswordHash;
-            Role = role;
+        } 
+        public string Role
+        {
+            get;
+            set => field = (value == "Administrador" || value == "Veterinario" || "Recepcionista")
+                ? value
+                : throw new AppDomainUnloadedException("El rol no es valido");
+        }
+        public bool Status { get; set; } = true;
+
+        public User  (int? idVet, string userName, string userPassword, string role)
+        {
             IdVet = idVet;
-            Status = true;
+            UserName = userName;
+            UserPassword = userPassword;
+            Role = role;
         }
-
-        public void CambiarPassword(string nuevoHash)
-        {
-            if (string.IsNullOrWhiteSpace(nuevoHash))
-                throw new ArgumentException("La nueva contraseña no puede estar vacía");
-            UserPassword = nuevoHash;
-        }
-
-        public void Activar() => Status = true;
-        public void Desactivar() => Status = false;
     }
 }
+
+
+

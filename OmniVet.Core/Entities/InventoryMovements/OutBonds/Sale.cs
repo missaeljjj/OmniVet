@@ -1,42 +1,43 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using OmniVet.Core.Entities.CRM;
-
-namespace OmniVet.Core.Entities.OutBonds
+namespace OmniVet.Core.InventoryMovements.OutBonds
 {
-    public class Sale : Entities.BaseEntity
+    public class Sale : Transaction
     {
-        private readonly List<SaleDetail> _details = new();
-        private static readonly string[] EstadosValidos = { "Pagado", "Pendiente" };
+        public int? IdCustomer { get; set; }
 
-        public int IdCustomer { get; private set; }
-        public Customer? Customer { get; private set; }
-        public DateTime SaleDate { get; private set; }
-        public string SaleState { get; private set; } = "Pendiente";
-
-        public IReadOnlyList<SaleDetail> Details => _details.AsReadOnly();
-        public decimal Total => _details.Sum(d => d.Subtotal);
-
-        public Sale(int id, int idCustomer, DateTime saleDate, Customer? customer = null) : base(id)
+        public Sale(string state, DateTime transactionDate, int? idCustomer)
         {
+            State = state;
+            TransactionDate = transactionDate;
             IdCustomer = idCustomer;
-            SaleDate = saleDate;
-            Customer = customer;
+        }
+    }
+
+    public class SaleDetail : TrasactionDetail
+    {
+        public int IdSale
+        {
+            get;
+            set => field = value > 0
+                ? value
+                : throw new DomainException("El IdSale es obligatorio.");
         }
 
-        public void AgregarDetalle(SaleDetail detalle)
+        public int IdProduct
         {
-            if (detalle == null)
-                throw new ArgumentNullException(nameof(detalle));
-            _details.Add(detalle);
+            get;
+            set => field = value > 0
+                ? value
+                : throw new DomainException("El IdProduct es obligatorio.");
         }
 
-        public void CambiarEstado(string nuevoEstado)
+        public float Subtotal => UnitPrice * Quantity;
+
+        public SaleDetail(int idSale, int idProduct, int quantity, float unitPrice)
         {
-            if (!EstadosValidos.Contains(nuevoEstado))
-                throw new ArgumentException($"Estado inválido: {nuevoEstado}");
-            SaleState = nuevoEstado;
+            IdSale = idSale;
+            IdProduct = idProduct;
+            Quantity = quantity;
+            UnitPrice = unitPrice;
         }
     }
 }

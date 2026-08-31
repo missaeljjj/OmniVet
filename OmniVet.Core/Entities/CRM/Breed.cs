@@ -1,21 +1,33 @@
-using OmniVet.Core.Entities.CRM;
+using OmnitVet.Core.Shared;
+using OmnitVet.Core.Exceptions;
+using OmniVet.Core.Shared;
+using System.Runtime.CompilerServices;
 
-namespace OmniVet.Core.Entities.CRM
+namespace OmnitVet.Core.CRM
 {
-    public class Breed : Entities.BaseEntity
+    public class Breed : IEntity<int>
     {
-        public int IdAnimal { get; private set; }
-        public Animal? Aniaml { get; private set; }
-        public string BreedName { get; private set; }
+        public int Id { get; }
 
-        public Breed(int id, int idAnimal, string breedName, Animal? animal = null) : base(id)
+        public int IdAnimal
         {
-            if (string.IsNullOrWhiteSpace(breedName))
-                throw new ArgumentException("La raza es obligatoria");
-            IdAnimal = idAnimal;
-            BreedName = breedName;
-            Animal = animal;
+            get;
+            set => field = value > 0
+                ? value
+                : throw new AppDomainUnloadedException("El IdAnimal es obligatorio.");
 
         }
+        public string BreedName
+        {
+            get;
+            set => field = !string.IsNullOrWhiteSpace("El nombre de la raza es obligatorio.");
+        } 
+
+        public Breed(int idAnimal, string breedName)
+        {
+            IdAnimal = idAnimal;
+            BreedName = breedName;
+        } 
+        
     }
 }

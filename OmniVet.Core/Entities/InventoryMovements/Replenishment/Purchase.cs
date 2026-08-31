@@ -1,41 +1,48 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using OmnitVet.Core.Exceptions;
+using OmniVet.Core.Exceptions;
 
-namespace OmniVet.Core.Entities.Replenishment
+namespace OmnitVet.Core.InventoryMovements.Replenishment
 {
-    public class Purchase : Entities.BaseEntity
+    public class Purchase : Transaction
     {
-        private readonly List<PurchaseDetail> _details = new();
-        private static readonly string[] EstadosValidos = { "Pendiente", "En Tránsito", "Recibido" };
-
-        public int IdSupplier { get; private set; }
-        public Supplier? Supplier { get; private set; }
-        public DateTime PurchaseDate { get; private set; }
-        public string PurchaseState { get; private set; } = "Pendiente";
-
-        public IReadOnlyList<PurchaseDetail> Details => _details.AsReadOnly();
-        public decimal Total => _details.Sum(d => d.Subtotal);
-
-        public Purchase(int id, int idSupplier, DateTime purchaseDate, Supplier? supplier = null) : base(id)
+        public int IdSupplier
         {
+            get;
+            set => field = value > 0
+                ? value
+                : throw new AppDomainUnloadedException("El IdSupplier es obligatorio.");
+        }
+        public Purchase(string state, DateTime transactionDate, int idSupplier)
+        {
+            State = state;
+            TransactionDate = transactionDate;
             IdSupplier = idSupplier;
-            PurchaseDate = purchaseDate;
-            Supplier = supplier;
         }
-
-        public void AgregarDetalle(PurchaseDetail detalle)
+    }
+    public class PurchaseDetail : TrasactionDetail
+    {
+        public int IdPurchase
         {
-            if (detalle == null)
-                throw new ArgumentNullException(nameof(detalle));
-            _details.Add(detalle);
+            get;
+            set => field = value > 0
+                ? value
+                : throw new DomainException("El IdPurchase es obligatorio.");
         }
-
-        public void CambiarEstado(string nuevoEstado)
+        public int IdProduct
         {
-            if (!EstadosValidos.Contains(nuevoEstado))
-                throw new ArgumentException($"Estado inválido: {nuevoEstado}");
-            PurchaseState = nuevoEstado;
+            get;
+            set => field = value > 0
+                ? value
+                : throw new DomainException("El IdProduct es obligatorio.");
+        }
+        public float Subtotal => UnitPrice * Quantity;
+
+        public PurchaseDetail(int idPurchase, int idProduct, int quantity, float unitCost )
+        {
+            IdPurchase = idPurchase;
+            IdProduct = idProduct;
+            Quantity = quantity;
+            UnitPrice = unitCost;
         }
     }
 }

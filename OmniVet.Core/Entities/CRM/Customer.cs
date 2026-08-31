@@ -1,21 +1,15 @@
-using OmniVet.Core.Entities.General;
+using OmniVet.Core;
 
-namespace OmniVet.Core.Entities.CRM
+namespace OmnitVet.Core.CRM
 {
-    public class Customer : Entities.BaseEntity
+    public class Customer : Person
     {
-        public int CustomerId { get; set; }
-        public int IdPerson { get; set; }
-        public Person? Person { get; set; }
-        public bool Status { get; set; }
+        public bool Status { get; set; } = true;
 
-        public Customer(int customerId, int idPerson, Person? person = null): base(id)
+        public Customer(string firstname, string secondname, string firstlastname,
+            string secondlastname, string address)
+            : base(firstname, secondname, firstlastname, secondlastname, address )
         {
-            CustomerId = customerId;
-            Person = person;
-            Status = true;
         }
-        public void Activate() => Status = true;
-        public void Deactivate() => Status = false;
     }
 }

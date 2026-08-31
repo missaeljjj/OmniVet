@@ -1,19 +1,26 @@
-using OmniVet.Core.Entities.General;
+using OmnitVet.Core.Shared;
+using OmnitVet.Core.Exceptions;
+using OmniVet.Core.Shared;
+using System.Globalization;
+using System.ComponentModel.DataAnnotations;
+using OmniVet.Core.Exceptions;
 
-namespace OmniVet.Core.Entities.CRM
+namespace OmnitVet.Core.CRM
 {
-    public class Animal : Entities.BaseEntity
+    public class Animal : IEntity<int>
     {
-        public int AnimalId { get; set; }
-        public string SpecieName { get;  private set; }
-
-        public Animal(int animalId, string specieName) : base(id)
+        public string SpecieName
         {
-            if (string.IsNullOrWhiteSpace(specieName))
-            {
-                throw new ArgumentException("La especie es obligatoria");
-                SpecieName = specieName;
-            }
+            get;
+            set => field = !string.IsNullOrWhiteSpace(value)
+                ? value.Trim()
+                : throw new DomainException("El nombre de la especie es obligataria.");
         }
-    }
+        public Animal (string specieName)
+        {
+            SpecieName = specieName;
+        } 
+    } 
+
+      
 }

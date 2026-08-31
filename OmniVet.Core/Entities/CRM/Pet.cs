@@ -1,38 +1,53 @@
-using OmniVet.Core.Entities.CRM;
+using OmnitVet.Core.Shared;
+using OmnitVet.Core.Exceptions;
+using OmniVet.Core.Shared;
 
-namespace OmniVet.Core.Entities.CRM
+namespace OmnitVet.Core.CRM
 {
-    public class Pet : Entities.BaseEntity
+    public class Pet : IEntity<int>
     {
-        public int IdCustomer { get; private set; }
-        public Customer ? Customer { get; private set; }
-        public int? IdBreed { get; private set; }
-        public Breed? Breed { get; private set; }
-        public int IdAnimal { get; private set; }
-        public Animal? Animal { get; private set; }
-        public string Name { get; private set; }
-        public DateTime BirthDate { get; private set; }
-        public char Gender { get; private set; }
-        public string? Observations { get; private set; }
+        public int Id { get; }
 
-        public Pet(int id, int idCustomer, int idAnimal, string name, DateTime birthDate, char gender, int? idBreed = null, string? observations = null) : base(id)
+        public int IdCustomer
         {
-            if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentException("El nombre de la mascota es obligatorio");
-            if (birthDate > DateTime.Now)
-                throw new ArgumentException("La fecha de nacimiento no puede ser futura");
-            if (gender !== 'M' && gender != 'F')
-                throw new ArgumentException("Genero invalido, por favor, use 'M' o 'F' ");
+            get;
+            set => field = value > 0
+                ? value
+                : throw new AppDomainUnloadedException("El IdCustomer es obligatorio.");
+        }
+        public int? IdBreed { get; set; } 
 
+        public int IdAnimal
+        {
+            get;
+            set => field = !string.IsNullOrWhiteSpace("El IdAnimal es obligatorio.");
+        }
+        public string Name
+        {
+            get;
+            set => field = !string.IsNullOrWhiteSpace(value)
+                ? value.Trim()
+                : throw new AppDomainUnloadedException("El nombre de la mascota es obligatorio.");
+        }
+        public DateTime BirthDate
+        {
+            get;
+            set => field = (value == "M" || value == "F")
+                ? value
+                : throw new AppDomainUnloadedException("El genero debe ser 'M' o 'F'.");
+        }
+        public string Observations { get; set; }
+
+        public Pet(int idCustomer, int? idBreed, int idAnimal, string name,
+            DateTime birthDate, char gender, string observations)
+        {
             IdCustomer = idCustomer;
+            IdBreed = idBreed;
             IdAnimal = idAnimal;
             Name = name;
             BirthDate = birthDate;
             Gender = gender;
-            IdBreed = idBreed;
             Observations = observations;
         }
-
-        public int EdadEnAnios() => (int) (DateTime.Now - BirthDate).TotalDays / 365.25);
     }
 }

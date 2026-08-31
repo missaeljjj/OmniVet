@@ -1,71 +1,52 @@
-using OmniVet.Core.Entities.Inventory;
+using OmnitVet.Core.Shared;
+using OmnitVet.Core.Exceptions;
+using OmniVet.Core.Shared;
 
-namespace OmniVet.Core.Entities.Inventory
+namespace OmnitVet.Core.Inventory
 {
-    public class Product : Entities.BaseEntity
+    public class Product : IEntity<int>
     {
-        private int _stock;
-        private decimal _unitPrice;
+        public int Id { get; }
 
-        public int IdCategory { get; private set; }
-        public Category? Category { get; private set; }
-        public string Name { get; private set; }
-        public string? Description { get; private set; }
-        public int MinimumStock { get; private set; }
-        public bool Status { get; private set; }
+        public int IdCategory
+        {
+            get;
+            set => field = value > 0
+                ? value
+                : throw new AppDomainUnloadedException("El IdCategory es obligatoria.");
+        }
+        public string Name
+        {
+            get;
+            set => field = !string.IsNullOrWhiteSpace(value)
+                ? value.Trim()
+                : throw new AppDomainUnloadedException("El nombre del producto es obligatorio.");
+        }
+        public string Description { get; set; } 
 
         public int Stock
         {
-            get => _stock;
-            private set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentException("El stock no puede ser negativo.");
-                }
-                _stock = value;
-            }
+            get;
+            set => field = value >= 0
+                ? value
+                : throw new AppDomainUnloadedException("El stock no puede ser negativo.");
         }
-
         public decimal UnitPrice
         {
-            get => _unitPrice;
-            private set
-            {
-                if (value < 0)
-                {
-                    throw new ArgumentException("El precio unitario no puede ser negativo.");
-                }
-                _unitPrice = value;
-            }
+            get;
+            set => field = value >= 0
+                ? value
+                : throw new AppDomainUnloadedException("El precio unitario no puede ser negativo.");
         }
+        public bool Status { get; set; } = true;
 
-        public Product(int id, int idCategory, string name, string? description, int minimumStock, bool status, int stock, decimal unitPrice) : base(id)
+        public Product (int idCategory, string name, string description, int stock,  decimal unitPrice)
         {
             IdCategory = idCategory;
             Name = name;
             Description = description;
-            MinimumStock = minimumStock;
-            Status = true;
             Stock = stock;
             UnitPrice = unitPrice;
-
-        }
-
-        public void AdjustStock(int cantidad)
-        {
-            var nuevoStock = _stock + cantidad;
-            if (nuevoStock < 0)
-            {
-                throw new ArgumentException("No hay suficiente stock disponible.")
-            }
-            Stock = nuevoStock;
-        }
-
-        public string CalculateStatus()
-        {
-            Stock <= MinimumStock ? "CRITICO" :
-                Stock <= MinimumStock * 1.5 ? "BAJO" : "NORMAL";
         }
     }
 }

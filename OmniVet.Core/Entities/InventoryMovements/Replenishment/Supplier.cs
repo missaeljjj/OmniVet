@@ -1,25 +1,15 @@
-using System;
-using OmniVet.Core.Entities.General;
+using OmniVet.Core;
 
-namespace OmniVet.Core.Entities.Replenishment
+namespace OmnitVet.Core.InventoryMovements.Replenishment
 {
-    public class Supplier : Entities.BaseEntity
+    public class Supplier : Person
     {
-        public int IdPerson { get; private set; }
-        public Person? Person { get; private set; }
-        public bool Status { get; private set; }
+        public bool Status { get; set; } = true;
 
-        public Supplier(int id, int idPerson, Person? person = null) : base(id)
+        public Supplier(string firstname, string secondame, string firstlastname,
+            string secondlastname, string address)
+            : base (firstname, secondame, firstlastname, secondlastname, address)
         {
-            if (idPerson <= 0)
-                throw new ArgumentException("IdPerson inválido");
-
-            IdPerson = idPerson;
-            Person = person;
-            Status = true;
         }
-
-        public void Activar() => Status = true;
-        public void Desactivar() => Status = false;
     }
 }
