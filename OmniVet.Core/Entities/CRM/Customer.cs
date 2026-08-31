@@ -1,15 +1,19 @@
+using OmnitVet.Core.General;
 using OmniVet.Core;
 
-namespace OmnitVet.Core.CRM
+namespace OmniVet.Core.CRM
 {
     public class Customer : Person
     {
-        public bool Status { get; set; } = true;
+        public int CustomerId {get; private set;}
+        public bool Status { get; set; }
 
-        public Customer(string firstname, string secondname, string firstlastname,
-            string secondlastname, string address)
-            : base(firstname, secondname, firstlastname, secondlastname, address )
+        public Customer(int personid,int customerid,string firstname, string secondname, string firstlastname,
+            string secondlastname, string address,bool status,Identification identification)
+            : base(personid,firstname, secondname, firstlastname, secondlastname, address,identification)
         {
+            CustomerId = customerid;
+            Status = status;
         }
     }
 }

@@ -13,5 +13,5 @@ public interface IEntity<TKey>
     /// <remarks>
     /// This value shouldn't change once assigned.
     /// </remarks>
-    TKey Key{get;}
+    TKey Id{get;}
 }

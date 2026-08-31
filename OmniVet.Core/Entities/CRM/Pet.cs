@@ -1,7 +1,7 @@
-using OmnitVet.Core.Shared;
-using OmnitVet.Core.Exceptions;
 using OmniVet.Core.Shared;
+using OmniVet.Core.Exceptions;
 
+/*
 namespace OmnitVet.Core.CRM
 {
     public class Pet : IEntity<int>
@@ -17,11 +17,8 @@ namespace OmnitVet.Core.CRM
         }
         public int? IdBreed { get; set; } 
 
-        public int IdAnimal
-        {
-            get;
-            set => field = !string.IsNullOrWhiteSpace("El IdAnimal es obligatorio.");
-        }
+        public int IdAnimal{get; set;}
+
         public string Name
         {
             get;
@@ -29,13 +26,10 @@ namespace OmnitVet.Core.CRM
                 ? value.Trim()
                 : throw new AppDomainUnloadedException("El nombre de la mascota es obligatorio.");
         }
-        public DateTime BirthDate
-        {
-            get;
-            set => field = (value == "M" || value == "F")
-                ? value
-                : throw new AppDomainUnloadedException("El genero debe ser 'M' o 'F'.");
-        }
+
+
+        public DateTime BirthDate { get; set;}
+        
         public string Observations { get; set; }
 
         public Pet(int idCustomer, int? idBreed, int idAnimal, string name,
@@ -51,3 +45,4 @@ namespace OmnitVet.Core.CRM
         }
     }
 }
+*/
