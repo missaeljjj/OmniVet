@@ -1,10 +1,8 @@
-using OmnitVet.Core.Shared;
-using OmnitVet.Core.Exceptions;
-using OmniVet.Core.Medical;
 using OmniVet.Core.Shared;
+using OmniVet.Core.Exceptions;  
 using System.Runtime.CompilerServices;
 
-namespace OmnitVet.Core.Admimistration
+namespace OmniVet.Core.Administration
 {
     public class User : IEntity<int>
     {
@@ -30,9 +28,9 @@ namespace OmnitVet.Core.Admimistration
         public string Role
         {
             get;
-            set => field = (value == "Administrador" || value == "Veterinario" || "Recepcionista")
-                ? value
-                : throw new AppDomainUnloadedException("El rol no es valido");
+            set => field = !string.IsNullOrWhiteSpace(value)
+                ? value.Trim()
+                : throw new AppDomainUnloadedException("El rol es obligatorio.");
         }
         public bool Status { get; set; } = true;
 

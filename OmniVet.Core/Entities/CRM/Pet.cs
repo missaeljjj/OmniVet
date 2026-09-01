@@ -2,7 +2,7 @@ using OmniVet.Core.Shared;
 using OmniVet.Core.Exceptions;
 
 /*
-namespace OmnitVet.Core.CRM
+namespace OmniVet.Core.CRM
 {
     public class Pet : IEntity<int>
     {

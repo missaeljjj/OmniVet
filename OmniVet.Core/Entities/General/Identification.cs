@@ -2,7 +2,7 @@ using OmniVet.Core.Exceptions;
 using OmniVet.Core.Shared;
 using OmniVet.Core.Enums;
 
-namespace OmnitVet.Core.General;
+namespace OmniVet.Core.General;
 
 public class Identification : IEntity<int>
 {

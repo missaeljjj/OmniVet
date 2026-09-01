@@ -1,3 +1,5 @@
+using OmniVet.Core.Exceptions;
+
 namespace OmniVet.Core.InventoryMovements.OutBonds
 {
     public class Sale : Transaction

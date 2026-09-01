@@ -1,7 +1,6 @@
-using OmnitVet.Core.Exceptions;
 using OmniVet.Core.Exceptions;
 
-namespace OmnitVet.Core.InventoryMovements.Replenishment
+namespace OmniVet.Core.InventoryMovements.Replenishment
 {
     public class Purchase : Transaction
     {

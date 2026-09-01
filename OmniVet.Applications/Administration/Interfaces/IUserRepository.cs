@@ -1,10 +1,9 @@
-﻿using OmniVet.Core.Entities.Administration;
+﻿using OmniVet.Core.Administration;
+using OmniVet.Applications.Shared;
 
 namespace OmniVet.Core.Interfaces.Repository
 {
-    public interface IUserRepository : IRepository<User>
+    public interface IUserRepository
     {
-        User? GetByUserName(string userNameOrEmail);
-        bool ValidarCredenciales(string userNameOrEmail, string password);
     }
 }

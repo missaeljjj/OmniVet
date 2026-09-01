@@ -1,4 +1,4 @@
-using OmniVet.Application.CRM.Interfaces;
+using OmniVet.Applications.CRM.Interfaces;
 using Microsoft.Data.SqlClient;
 using OmniVet.Core.CRM;
 using System.Data.Common;

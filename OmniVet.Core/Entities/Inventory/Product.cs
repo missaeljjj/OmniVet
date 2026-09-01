@@ -1,8 +1,7 @@
-using OmnitVet.Core.Shared;
-using OmnitVet.Core.Exceptions;
 using OmniVet.Core.Shared;
+using OmniVet.Core.Exceptions;
 
-namespace OmnitVet.Core.Inventory
+namespace OmniVet.Core.Inventory
 {
     public class Product : IEntity<int>
     {

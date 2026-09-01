@@ -1,15 +1,16 @@
-using OmniVet.Core;
+using OmniVet.Core.General;
 
-namespace OmnitVet.Core.InventoryMovements.Replenishment
+namespace OmniVet.Core.InventoryMovements.Replenishment
 {
     public class Supplier : Person
     {
         public bool Status { get; set; } = true;
 
-        public Supplier(string firstname, string secondame, string firstlastname,
-            string secondlastname, string address)
-            : base (firstname, secondame, firstlastname, secondlastname, address)
+        public Supplier(int personid,string firstname, string secondame, string firstlastname,
+            string secondlastname, string address,Identification identification,bool status)
+            : base (personid,firstname, secondame, firstlastname, secondlastname, address, identification)
         {
+            Status = status;
         }
     }
 }

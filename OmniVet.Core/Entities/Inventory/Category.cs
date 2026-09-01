@@ -1,6 +1,7 @@
+/*
 using OmniVet.Core.Shared;
 
-namespace OmniVet.Core;
+namespace OmniVet.Core.Inventory;
 
 public class Product : IEntity<int>
 {
@@ -21,3 +22,4 @@ public class Product : IEntity<int>
         ProductName = productname;
     }
 }
+*/

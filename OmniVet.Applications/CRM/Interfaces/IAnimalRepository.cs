@@ -1,8 +1,8 @@
-﻿using OmniVet.Core.Entities.CRM;
-
+﻿using OmniVet.Core.CRM;
+using OmniVet.Applications.Shared;
 namespace OmniVet.Core.Interfaces.Repository
 {
-    public interface IAnimalRepository : IRepository<Animal>
+    public interface IAnimalRepository : IRepository<Animal,int>
     {
     }
 }

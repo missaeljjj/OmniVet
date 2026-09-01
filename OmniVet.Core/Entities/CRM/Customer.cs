@@ -1,5 +1,4 @@
-using OmnitVet.Core.General;
-using OmniVet.Core;
+using OmniVet.Core.General;
 
 namespace OmniVet.Core.CRM
 {

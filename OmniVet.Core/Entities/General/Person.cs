@@ -1,7 +1,6 @@
-using OmnitVet.Core.General;
 using OmniVet.Core.Shared;
 
-namespace OmniVet.Core;
+namespace OmniVet.Core.General;
 
 public abstract class Person : IEntity<int>
 {

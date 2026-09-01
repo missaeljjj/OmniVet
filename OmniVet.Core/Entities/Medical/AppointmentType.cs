@@ -1,6 +1,4 @@
-using OmniVet.Core.Entities.General;
-using OmniVet.Core.Entities.CRM;
-
+/*
 namespace OmniVet.Core.Entities.Medical
 {
 
@@ -20,3 +18,4 @@ namespace OmniVet.Core.Entities.Medical
 
  
 }
+*/

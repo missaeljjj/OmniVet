@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using OmniVet.Core.Entities.Replenishment;
+using OmniVet.Applications.Shared;
+using OmniVet.Core.InventoryMovements.Replenishment;
 
 namespace OmniVet.Core.Interfaces.Repository
 {
-    public interface IPurchaseRepository : IRepository<Purchase>
+    public interface IPurchaseRepository : IRepository<Purchase,int>
     {
-        IEnumerable<Purchase> GetPendientes();
-        decimal GetGastoDelMes(int anio, int mes);
-        Purchase? GetProximaEntrega();
+       
     }
 }

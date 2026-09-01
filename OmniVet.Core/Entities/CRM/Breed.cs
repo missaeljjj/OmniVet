@@ -1,9 +1,9 @@
-using OmnitVet.Core.Shared;
-using OmnitVet.Core.Exceptions;
 using OmniVet.Core.Shared;
+using OmniVet.Core.Exceptions;
+
 using System.Runtime.CompilerServices;
 
-namespace OmnitVet.Core.CRM
+namespace OmniVet.Core.CRM
 {
     public class Breed : IEntity<int>
     {
@@ -20,7 +20,11 @@ namespace OmnitVet.Core.CRM
         public string BreedName
         {
             get;
-            set => field = !string.IsNullOrWhiteSpace("El nombre de la raza es obligatorio.");
+            set => field = !string.IsNullOrWhiteSpace("El nombre de la raza es obligatorio.") switch
+                {
+                    true => value.Trim(),
+                    false => throw new AppDomainUnloadedException("El nombre de la raza es obligatorio.")
+                };
         } 
 
         public Breed(int idAnimal, string breedName)
