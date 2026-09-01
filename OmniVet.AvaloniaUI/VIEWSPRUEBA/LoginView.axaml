@@ -1,0 +1,75 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OmniVetUI.Views.LoginView">
+  <Grid Background="#5B9F63">
+    <Border Background="#FFFFFF"
+            CornerRadius="16"
+            Width="480"
+            Padding="48,40"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+      <StackPanel Spacing="0">
+        <Ellipse Width="90" Height="90" Fill="#E3ECE5" HorizontalAlignment="Center"/>
+        <TextBlock Text="OmniVet"
+                   FontSize="32"
+                   FontWeight="Bold"
+                   Foreground="#1E3A26"
+                   HorizontalAlignment="Center"
+                   Margin="0,16,0,0"/>
+                   
+        <TextBlock Text="Sistema de Gestión Veterinaria"
+                   FontSize="14"
+                   Foreground="#6E8277"
+                   HorizontalAlignment="Center"
+                   Margin="0,4,0,32"/>
+
+        <TextBlock Text="Usuario o correo electrónico"
+                   FontSize="13"
+                   FontWeight="Bold"
+                   Foreground="#1E3A26"
+                   Margin="0,0,0,6"/>
+        <Border Background="#F5FAF6" CornerRadius="8" Padding="14,12" Margin="0,0,0,20">
+          <TextBlock Text="admin@omnivet.com" Foreground="#6E8277" FontSize="14"/>
+        </Border>
+
+        <TextBlock Text="Contraseña"
+                   FontSize="13"
+                   FontWeight="Bold"
+                   Foreground="#1E3A26"
+                   Margin="0,0,0,6"/>
+        <Border Background="#F5FAF6" CornerRadius="8" Padding="14,12" Margin="0,0,0,16">
+          <TextBlock Text="••••••••••" Foreground="#6E8277" FontSize="14"/>
+        </Border>
+
+        <Grid Margin="0,0,0,24">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+          </Grid.ColumnDefinitions>
+          <StackPanel Orientation="Horizontal" Spacing="8" Grid.Column="0">
+            <Border Width="18" Height="18" Background="#4C8C55" CornerRadius="4"/>
+            <TextBlock Text="Recordarme" Foreground="#1E3A26" FontSize="13" VerticalAlignment="Center"/>
+          </StackPanel>
+          <TextBlock Text="¿Olvidaste tu contraseña?"
+                     Foreground="#4C8C55"
+                     FontSize="13"
+                     Grid.Column="1"/>
+        </Grid>
+
+        <Border Background="#3F7A4C" CornerRadius="8" Padding="0,14">
+          <TextBlock Text="Iniciar Sesión"
+                     Foreground="White"
+                     FontWeight="Bold"
+                     FontSize="15"
+                     HorizontalAlignment="Center"/>
+        </Border>
+
+        <TextBlock Text="¿No tienes cuenta? Contacta al administrador de la clínica"
+                   Foreground="#6E8277"
+                   FontSize="12"
+                   HorizontalAlignment="Center"
+                   Margin="0,20,0,0"/>
+      </StackPanel>
+    </Border>
+  </Grid>
+</UserControl>

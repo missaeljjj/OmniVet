@@ -1,5 +1,5 @@
 using OmniVet.Core.Shared;
-using OmnitVet.Core.Exceptions;
+using OmniVet.Core.Exceptions;
 
 namespace OmnitVet.Core.InventoryMovements;
 
@@ -14,29 +14,21 @@ public abstract class Transaction : IEntity<int>
     public DateTime TransactionDate
     {
         get;
-        set => field = value > DateTime.Now switch
-        {
-            true => throw new DomainException("La fecha de la transaccion no puede ser mayor al dia de hoy"),
-            _ => field = value
-        };
-            
+        set => field = value > DateTime.Now
+            ? throw new DomainException("La fecha de la transaccion no puede ser mayor al dia de hoy")
+            : value;
     }
-
 }
 
-//class for trasactions detail use for purchase and sales
+//class for transactions detail use for purchase and sales
 public abstract class TrasactionDetail : IEntity<int>
 {
     public int Id { get; }
 
-    public Quantity
+    public int Quantity
     {
         get;
-        set => field = value > 0 switch
-        {
-            true => throw new DomainException("La cantidad de productos no puede ser cero"),
-            _ = field = value
-        };
+        set => field = value;
     }
 
     public float UnitPrice
@@ -50,5 +42,4 @@ public abstract class TrasactionDetail : IEntity<int>
 
           
     }
-
 }

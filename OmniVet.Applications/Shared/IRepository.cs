@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using OmniVet.Core.Shared;
 
-namespace OmniVet.Application.Shared;
+namespace OmniVet.Applications.Shared;
 
 public interface IRepository<TEntity,TKey> where TEntity : class, IEntity<TKey>
 {

@@ -1,0 +1,176 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="OmniVetUI.Views.Appoinments">
+  <DockPanel Background="#F5FAF6">
+
+    <Border DockPanel.Dock="Top" Background="#5B9F63" Padding="24,14">
+      <Grid ColumnDefinitions="Auto,*,Auto">
+        <StackPanel Orientation="Horizontal" Spacing="12" Grid.Column="0">
+          <Ellipse Width="44" Height="44" Fill="White"/>
+          <TextBlock Text="OmniVet" FontSize="22" FontWeight="Bold" Foreground="White" VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Spacing="8" Grid.Column="1" HorizontalAlignment="Center">
+          <Border Background="#4C8C55" CornerRadius="8" Padding="18,10">
+            <TextBlock Text="Inicio" FontWeight="Bold" Foreground="White"/>
+          </Border>
+          <Border Background="#4C8C55" CornerRadius="8" Padding="18,10">
+            <TextBlock Text="Ventas" FontWeight="Bold" Foreground="White"/>
+          </Border>
+          <Border Background="#4C8C55" CornerRadius="8" Padding="18,10">
+            <TextBlock Text="Compras" FontWeight="Bold" Foreground="White"/>
+          </Border>
+          <Border Background="White" CornerRadius="8" Padding="18,10">
+            <TextBlock Text="Citas" FontWeight="Bold" Foreground="#3F7A4C"/>
+          </Border>
+          <Border Background="#4C8C55" CornerRadius="8" Padding="18,10">
+            <TextBlock Text="Inventario" FontWeight="Bold" Foreground="White"/>
+          </Border>
+          <Border Background="#4C8C55" CornerRadius="8" Padding="18,10">
+            <TextBlock Text="Clientes" FontWeight="Bold" Foreground="White"/>
+          </Border>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" Spacing="12" Grid.Column="2">
+          <Ellipse Width="40" Height="40" Fill="#E3ECE5"/>
+          <Border Background="#1E3A26" CornerRadius="8" Width="40" Height="40">
+            <TextBlock Text="&#8677;" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+          </Border>
+        </StackPanel>
+      </Grid>
+    </Border>
+
+    <ScrollViewer>
+      <StackPanel Margin="32,24" Spacing="24">
+        <TextBlock Text="Agenda de Citas" FontSize="28" FontWeight="Bold" Foreground="#1E3A26"/>
+
+        <Grid ColumnDefinitions="*,*,*,*">
+          <Border Grid.Column="0" Background="White" CornerRadius="12" Padding="20" Margin="0,0,8,0">
+            <StackPanel Spacing="10">
+              <Border Background="#E3ECE5" CornerRadius="8" Width="40" Height="40">
+                <TextBlock Text="6" FontWeight="Bold" Foreground="#3F7A4C" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+              <TextBlock Text="Citas Hoy" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="6" FontSize="26" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="Programadas" FontSize="12" Foreground="#6E8277"/>
+              <Border Background="#3F7A4C" CornerRadius="8" Padding="0,10">
+                <TextBlock Text="Agendar Cita" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" FontSize="13"/>
+              </Border>
+            </StackPanel>
+          </Border>
+
+          <Border Grid.Column="1" Background="White" CornerRadius="12" Padding="20" Margin="8,0">
+            <StackPanel Spacing="10">
+              <Border Background="#E3ECE5" CornerRadius="8" Width="40" Height="40">
+                <TextBlock Text="&#10003;" FontWeight="Bold" Foreground="#3F7A4C" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+              <TextBlock Text="Confirmadas" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="4" FontSize="26" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="Listas para atender" FontSize="12" Foreground="#6E8277"/>
+              <Border Background="#3F7A4C" CornerRadius="8" Padding="0,10">
+                <TextBlock Text="Ver Agenda" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" FontSize="13"/>
+              </Border>
+            </StackPanel>
+          </Border>
+
+          <Border Grid.Column="2" Background="White" CornerRadius="12" Padding="20" Margin="8,0">
+            <StackPanel Spacing="10">
+              <Border Background="#E3ECE5" CornerRadius="8" Width="40" Height="40">
+                <TextBlock Text="?" FontWeight="Bold" Foreground="#3F7A4C" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+              <TextBlock Text="En Espera" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="2" FontSize="26" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="Por confirmar" FontSize="12" Foreground="#6E8277"/>
+              <Border Background="#3F7A4C" CornerRadius="8" Padding="0,10">
+                <TextBlock Text="Recordatorio" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" FontSize="13"/>
+              </Border>
+            </StackPanel>
+          </Border>
+
+          <Border Grid.Column="3" Background="White" CornerRadius="12" Padding="20" Margin="8,0,0,0">
+            <StackPanel Spacing="10">
+              <Border Background="#F9D9D9" CornerRadius="8" Width="40" Height="40">
+                <TextBlock Text="&#10005;" FontWeight="Bold" Foreground="#B23A3A" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+              <TextBlock Text="Canceladas" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="1" FontSize="26" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="Esta semana" FontSize="12" Foreground="#6E8277"/>
+              <Border Background="#3F7A4C" CornerRadius="8" Padding="0,10">
+                <TextBlock Text="Ver Historial" Foreground="White" FontWeight="Bold" HorizontalAlignment="Center" FontSize="13"/>
+              </Border>
+            </StackPanel>
+          </Border>
+        </Grid>
+
+        <Grid ColumnDefinitions="*,Auto">
+          <TextBlock Grid.Column="0" Text="Citas Programadas Hoy" FontSize="20" FontWeight="Bold" Foreground="#1E3A26" VerticalAlignment="Center"/>
+          <Border Grid.Column="1" Background="#3F7A4C" CornerRadius="8" Padding="18,10">
+            <TextBlock Text="Agendar Cita" Foreground="White" FontWeight="Bold" FontSize="13"/>
+          </Border>
+        </Grid>
+
+        <Border Background="White" CornerRadius="12" ClipToBounds="True">
+          <StackPanel>
+            <Grid Background="#3F7A4C" ColumnDefinitions="*,2*,2*,2*,2*,*">
+              <TextBlock Grid.Column="0" Text="Hora" Foreground="White" FontWeight="Bold" Padding="16,12"/>
+              <TextBlock Grid.Column="1" Text="Paciente" Foreground="White" FontWeight="Bold" Padding="16,12"/>
+              <TextBlock Grid.Column="2" Text="Dueño" Foreground="White" FontWeight="Bold" Padding="16,12"/>
+              <TextBlock Grid.Column="3" Text="Motivo" Foreground="White" FontWeight="Bold" Padding="16,12"/>
+              <TextBlock Grid.Column="4" Text="Veterinario" Foreground="White" FontWeight="Bold" Padding="16,12"/>
+              <TextBlock Grid.Column="5" Text="Estado" Foreground="White" FontWeight="Bold" Padding="16,12"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="*,2*,2*,2*,2*,*" Background="White">
+              <TextBlock Grid.Column="0" Text="09:00" Padding="16,12"/>
+              <TextBlock Grid.Column="1" Text="Rocky (Bulldog)" Padding="16,12"/>
+              <TextBlock Grid.Column="2" Text="Carlos Ruiz" Padding="16,12"/>
+              <TextBlock Grid.Column="3" Text="Desparasitación" Padding="16,12"/>
+              <TextBlock Grid.Column="4" Text="Dra. Rodríguez" Padding="16,12"/>
+              <TextBlock Grid.Column="5" Text="Confirmada" Foreground="#3F7A4C" FontWeight="Bold" Padding="16,12"/>
+            </Grid>
+            <Grid ColumnDefinitions="*,2*,2*,2*,2*,*" Background="#F5FAF6">
+              <TextBlock Grid.Column="0" Text="10:30" Padding="16,12"/>
+              <TextBlock Grid.Column="1" Text="Lazzy (Rottweiler)" Padding="16,12"/>
+              <TextBlock Grid.Column="2" Text="Angela Montenegro" Padding="16,12"/>
+              <TextBlock Grid.Column="3" Text="Vacunación Anual" Padding="16,12"/>
+              <TextBlock Grid.Column="4" Text="Dr. López" Padding="16,12"/>
+              <TextBlock Grid.Column="5" Text="En Espera" Foreground="#B08900" FontWeight="Bold" Padding="16,12"/>
+            </Grid>
+            <Grid ColumnDefinitions="*,2*,2*,2*,2*,*" Background="White">
+              <TextBlock Grid.Column="0" Text="11:00" Padding="16,12"/>
+              <TextBlock Grid.Column="1" Text="Simba (Angora)" Padding="16,12"/>
+              <TextBlock Grid.Column="2" Text="Lena Silver" Padding="16,12"/>
+              <TextBlock Grid.Column="3" Text="Chequeo General" Padding="16,12"/>
+              <TextBlock Grid.Column="4" Text="Dra. Rodríguez" Padding="16,12"/>
+              <TextBlock Grid.Column="5" Text="En Consulta" Foreground="#2B5FA0" FontWeight="Bold" Padding="16,12"/>
+            </Grid>
+            <Grid ColumnDefinitions="*,2*,2*,2*,2*,*" Background="#F5FAF6">
+              <TextBlock Grid.Column="0" Text="11:30" Padding="16,12"/>
+              <TextBlock Grid.Column="1" Text="Kira (Golden)" Padding="16,12"/>
+              <TextBlock Grid.Column="2" Text="Max Hodgins" Padding="16,12"/>
+              <TextBlock Grid.Column="3" Text="Lesión Pata" Padding="16,12"/>
+              <TextBlock Grid.Column="4" Text="Dr. Gómez" Padding="16,12"/>
+              <TextBlock Grid.Column="5" Text="Confirmada" Foreground="#3F7A4C" FontWeight="Bold" Padding="16,12"/>
+            </Grid>
+            <Grid ColumnDefinitions="*,2*,2*,2*,2*,*" Background="White">
+              <TextBlock Grid.Column="0" Text="12:30" Padding="16,12"/>
+              <TextBlock Grid.Column="1" Text="Tambor (Conejo)" Padding="16,12"/>
+              <TextBlock Grid.Column="2" Text="Caroline González" Padding="16,12"/>
+              <TextBlock Grid.Column="3" Text="Control de Peso" Padding="16,12"/>
+              <TextBlock Grid.Column="4" Text="Dr. López" Padding="16,12"/>
+              <TextBlock Grid.Column="5" Text="Finalizada" Foreground="#6E8277" FontWeight="Bold" Padding="16,12"/>
+            </Grid>
+            <Grid ColumnDefinitions="*,2*,2*,2*,2*,*" Background="#F5FAF6">
+              <TextBlock Grid.Column="0" Text="13:15" Padding="16,12"/>
+              <TextBlock Grid.Column="1" Text="Coco (Maltés)" Padding="16,12"/>
+              <TextBlock Grid.Column="2" Text="Luis Fernández" Padding="16,12"/>
+              <TextBlock Grid.Column="3" Text="Cirugía Menor" Padding="16,12"/>
+              <TextBlock Grid.Column="4" Text="Dr. Gómez" Padding="16,12"/>
+              <TextBlock Grid.Column="5" Text="Cancelada" Foreground="#B23A3A" FontWeight="Bold" Padding="16,12"/>
+            </Grid>
+          </StackPanel>
+        </Border>
+      </StackPanel>
+    </ScrollViewer>
+  </DockPanel>
+</UserControl>
