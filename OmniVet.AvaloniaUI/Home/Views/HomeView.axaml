@@ -1,0 +1,107 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:OmniVet.AvaloniaUI.ViewModels"
+             x:Class="OmniVet.AvaloniaUI.Views.HomeView"
+             x:DataType="vm:HomeViewModel">
+             
+  <DockPanel Background="#F5FAF6">
+
+    <ScrollViewer>
+      <StackPanel Margin="32,24" Spacing="24">
+        <TextBlock Text="Panel de Inicio" FontSize="28" FontWeight="Bold" Foreground="#1E3A26"/>
+
+        <Grid ColumnDefinitions="*,*,*,*">
+          <Border Grid.Column="0" Background="White" CornerRadius="12" Padding="20" Margin="0,0,8,0">
+            <StackPanel Spacing="10">
+              <Border Background="#E3ECE5" CornerRadius="8" Width="40" Height="40">
+                <TextBlock Text="C" FontWeight="Bold" Foreground="#3F7A4C" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+              <TextBlock Text="Citas Hoy" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="4" FontSize="26" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="2 Pendientes · 2 En Consulta" FontSize="12" Foreground="#6E8277"/>
+              <StackPanel Spacing="2">
+                <TextBlock Text="Lazzy (Perro) – 10:30" FontSize="12" Foreground="#6E8277"/>
+                <TextBlock Text="Simba (Gato) – 11:00" FontSize="12" Foreground="#6E8277"/>
+                <TextBlock Text="Kira (Perro) – 11:30" FontSize="12" Foreground="#6E8277"/>
+              </StackPanel>
+            </StackPanel>
+          </Border>
+
+          <Border Grid.Column="1" Background="White" CornerRadius="12" Padding="20" Margin="8,0">
+            <StackPanel Spacing="10">
+              <Border Background="#E3ECE5" CornerRadius="8" Width="40" Height="40">
+                <TextBlock Text="C$" FontWeight="Bold" Foreground="#3F7A4C" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+              <TextBlock Text="Última Venta" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="C$145.50" FontSize="26" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="Resumen del día" FontSize="12" Foreground="#6E8277"/>
+              <Button  Background="#3F7A4C" CornerRadius="8" Padding="0,10" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+                <TextBlock Text="Crear Nueva Venta" Foreground="White" FontWeight="Bold" FontSize="13"/>
+              </Button>
+            </StackPanel>
+          </Border>
+
+          <Border Grid.Column="2" Background="White" CornerRadius="12" Padding="20" Margin="8,0">
+            <StackPanel Spacing="10">
+              <Border Background="#F9D9D9" CornerRadius="8" Width="40" Height="40">
+                <TextBlock Text="!" FontWeight="Bold" Foreground="#B23A3A" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+              <TextBlock Text="Alertas Inventario" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="3" FontSize="26" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="Ítems críticos" FontSize="12" Foreground="#6E8277"/>
+              <Button Background="#3F7A4C" CornerRadius="8" Padding="0,10" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+                <TextBlock Text="Revisar Inventario" Foreground="White" FontWeight="Bold" FontSize="13"/>
+              </Button>
+            </StackPanel>
+          </Border>
+
+          <Border Grid.Column="3" Background="White" CornerRadius="12" Padding="20" Margin="8,0,0,0">
+            <StackPanel Spacing="10">
+              <Border Background="#E3ECE5" CornerRadius="8" Width="40" Height="40">
+                <TextBlock Text="+" FontWeight="Bold" Foreground="#3F7A4C" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+              <TextBlock Text="Nuevos Pacientes" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="+3" FontSize="26" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="Esta semana" FontSize="12" Foreground="#6E8277"/>
+              <Button  Background="#3F7A4C" CornerRadius="8" Padding="0,10" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+                <TextBlock Text="Añadir Paciente" Foreground="White" FontWeight="Bold" FontSize="13"/>
+              </Button>
+            </StackPanel>
+          </Border>
+        </Grid>
+
+        <TextBlock Text="Tablero de Citas del Día" FontSize="20" FontWeight="Bold" Foreground="#1E3A26"/>
+
+        <Border Background="White" CornerRadius="12" ClipToBounds="True">
+          <StackPanel>
+            <Grid Background="#3F7A4C" ColumnDefinitions="*,2*,2*,2*,2*,*" Margin="0">
+              <TextBlock Grid.Column="0" Text="Hora" Foreground="Black" FontWeight="Bold" Padding="16,12"/>
+              <TextBlock Grid.Column="1" Text="Paciente (Mascota)" Foreground="Black"  FontWeight="Bold" Padding="16,12"/>
+              <TextBlock Grid.Column="2" Text="Dueño" Foreground="Black"  FontWeight="Bold" Padding="16,12"/>
+              <TextBlock Grid.Column="3" Text="Motivo" Foreground="Black"  FontWeight="Bold" Padding="16,12"/>
+              <TextBlock Grid.Column="4" Text="Veterinario" Foreground="Black"  FontWeight="Bold" Padding="16,12"/>
+              <TextBlock Grid.Column="5" Text="Estado" Foreground="Black"  FontWeight="Bold" Padding="16,12"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="*,2*,2*,2*,2*,*" Background="White">
+              <TextBlock Grid.Column="0" Text="10:30" Foreground="Black" Padding="16,12"/>
+              <TextBlock Grid.Column="1" Text="Lazzy (Rottweiler)" Foreground="Black" Padding="16,12"/>
+              <TextBlock Grid.Column="2" Text="Angela Montenegro" Foreground="Black" Padding="16,12"/>
+              <TextBlock Grid.Column="3" Text="Vacunación Anual" Foreground="Black" Padding="16,12"/>
+              <TextBlock Grid.Column="4" Text="Dr. López" Foreground="Black" Padding="16,12"/>
+              <TextBlock Grid.Column="5" Text="En Espera" Foreground="#B08900" FontWeight="Bold" Padding="16,12"/>
+            </Grid>
+            <Grid ColumnDefinitions="*,2*,2*,2*,2*,*" Background="#F5FAF6">
+              <TextBlock Grid.Column="0" Text="11:00" Foreground="Black" Padding="16,12"/>
+              <TextBlock Grid.Column="1" Text="Simba (Angora)" Foreground="Black" Padding="16,12"/>
+              <TextBlock Grid.Column="2" Text="Lena Silver" Foreground="Black" Padding="16,12"/>
+              <TextBlock Grid.Column="3" Text="Chequeo General" Foreground="Black" Padding="16,12"/>
+              <TextBlock Grid.Column="4" Text="Dra. Rodríguez" Foreground="Black" Padding="16,12"/>
+              <TextBlock Grid.Column="5" Text="En Consulta" Foreground="#2B5FA0" FontWeight="Bold" Padding="16,12"/>
+            </Grid>
+          </StackPanel>
+        </Border>
+      </StackPanel>
+    </ScrollViewer>
+  </DockPanel>
+</UserControl>

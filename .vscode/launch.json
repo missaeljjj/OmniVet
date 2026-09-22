@@ -1,0 +1,11 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Avalonia: OmniVet.AvaloniaUI",
+            "type": "dotnet",
+            "request": "launch",
+            "projectPath": "${workspaceFolder}/OmniVet.AvaloniaUI/OmniVet.AvaloniaUI.csproj"
+        }
+    ]
+}

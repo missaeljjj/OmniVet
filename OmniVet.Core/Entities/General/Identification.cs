@@ -1,6 +1,5 @@
 using OmniVet.Core.Exceptions;
 using OmniVet.Core.Shared;
-using OmniVet.Core.Enums;
 
 namespace OmniVet.Core.General;
 
@@ -8,7 +7,7 @@ public class Identification : IEntity<int>
 {
     public int Id { get; }
     public int PersonId { get; set; }
-    public IdentificationsType IdentificationTypeId { get; set; }
+    public int IdentificationTypeId { get; set; }
 
     public string IdentificationNumber
     {
@@ -19,9 +18,9 @@ public class Identification : IEntity<int>
             _ => value.Trim()
         };
     }
-    public Identification(int personId, IdentificationsType identificationTypeId, string identificationNumber)
+    public Identification(int id, int identificationTypeId, string identificationNumber)
     {
-        this.Id = personId;
+        Id = id;
         IdentificationTypeId = identificationTypeId;
         IdentificationNumber = identificationNumber;
 

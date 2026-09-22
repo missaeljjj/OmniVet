@@ -36,9 +36,8 @@ public abstract class Person : IEntity<int>
 
   public string Address{get; set;}
 
-  public Identification Identification {get; set;}
   
-  public Person(int id,string firstname,string secondname, string firstlastname, string secondlastname,string address,Identification identification)
+  public Person(int id,string firstname,string secondname, string firstlastname, string secondlastname,string address)
   {
     Id = id;
     FirstName = firstname;
@@ -46,7 +45,6 @@ public abstract class Person : IEntity<int>
     FirstLastName = firstlastname;
     SecondLastName = secondlastname;
     Address = address;
-    Identification = identification;
     
   }
   

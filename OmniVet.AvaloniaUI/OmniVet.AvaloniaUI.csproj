@@ -21,9 +21,11 @@
       <PrivateAssets Condition="'$(Configuration)' != 'Debug'">All</PrivateAssets>
     </PackageReference>
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.12" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\OmniVet.Applications\OmniVet.Applications.csproj" />
+    <ProjectReference Include="..\OmniVet.Infrastructure/OmniVet.Infrastructure.csproj"/>
   </ItemGroup>
 </Project>

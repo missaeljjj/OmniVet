@@ -15,14 +15,14 @@ namespace OmniVet.Core.Administration
             get;
             set => field = !string.IsNullOrWhiteSpace(value)
                 ? value.Trim()
-                : throw new AppDomainUnloadedException("El nombre del usuario es obligatorio.");  
+                : throw new DomainException("El nombre del usuario es obligatorio.");  
         }
         public string UserPassword
         {
             get;
             set => field = !string.IsNullOrWhiteSpace(value)
                 ? value
-                : throw new AppDomainUnloadedException("La contraseña es obligatoria.");
+                : throw new DomainException("La contraseña es obligatoria.");
 
         } 
         public string Role

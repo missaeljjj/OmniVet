@@ -1,0 +1,186 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:OmniVet.AvaloniaUI.ViewModels"
+             x:Class="OmniVet.AvaloniaUI.Views.CustomerView"
+             x:DataType="vm:CustomerViewModel">
+  <DockPanel Background="#F5FAF6">
+
+
+
+    <!-- Contenedor Principal -->
+    <Grid>
+     
+      <ScrollViewer IsVisible="{Binding GeneralIsVisible}">
+        <StackPanel Margin="32,24" Spacing="24" HorizontalAlignment="Stretch">
+          
+          <TextBlock Text="Gestión de Clientes" FontSize="28" FontWeight="Bold" Foreground="#1E3A26"/>
+
+          <Grid ColumnDefinitions="*,*,*,*">
+            <Border Grid.Column="0" Background="White" CornerRadius="12" Padding="20" Margin="0,0,8,0">
+              <StackPanel Spacing="10">
+                <Border Background="#E3ECE5" CornerRadius="8" Width="40" Height="40" HorizontalAlignment="Left">
+                  <TextBlock Text="#" FontWeight="Bold" Foreground="#3F7A4C" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+                <TextBlock Text="Total Clientes" FontWeight="Bold" Foreground="#1E3A26"/>
+                <TextBlock Text="" FontSize="26" FontWeight="Bold" Foreground="#1E3A26"/>
+                <TextBlock Text="Registrados" FontSize="12" Foreground="#6E8277"/>
+                <Button Command="{Binding CreateNewCustomerShowCommand}" Background="#3F7A4C" CornerRadius="8" Padding="0,10" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+                  <TextBlock Text="Añadir Cliente" Foreground="White" FontWeight="Bold" FontSize="13"/>
+                </Button>
+              </StackPanel>
+            </Border>
+
+            <Border Grid.Column="1" Background="White" CornerRadius="12" Padding="20" Margin="8,0">
+              <StackPanel Spacing="10">
+                <Border Background="#E3ECE5" CornerRadius="8" Width="40" Height="40" HorizontalAlignment="Left">
+                  <TextBlock Text="+" FontWeight="Bold" Foreground="#3F7A4C" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+                <TextBlock Text="Nuevos" FontWeight="Bold" Foreground="#1E3A26"/>
+                <TextBlock Text="+12" FontSize="26" FontWeight="Bold" Foreground="#1E3A26"/>
+                <TextBlock Text="Este mes" FontSize="12" Foreground="#6E8277"/>
+                <Button Background="#3F7A4C" CornerRadius="8" Padding="0,10" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+                  <TextBlock Text="Ver Nuevos" Foreground="White" FontWeight="Bold" FontSize="13"/>
+                </Button>
+              </StackPanel>
+            </Border>
+
+            <Border Grid.Column="2" Background="White" CornerRadius="12" Padding="20" Margin="8,0">
+              <StackPanel Spacing="10">
+                <Border Background="#E3ECE5" CornerRadius="8" Width="40" Height="40" HorizontalAlignment="Left">
+                  <TextBlock Text="M" FontWeight="Bold" Foreground="#3F7A4C" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+                <TextBlock Text="Mascotas" FontWeight="Bold" Foreground="#1E3A26"/>
+                <TextBlock Text="312" FontSize="26" FontWeight="Bold" Foreground="#1E3A26"/>
+                <TextBlock Text="Registradas" FontSize="12" Foreground="#6E8277"/>
+                <Button Background="#3F7A4C" CornerRadius="8" Padding="0,10" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+                  <TextBlock Text="Ver Mascotas" Foreground="White" FontWeight="Bold" FontSize="13"/>
+                </Button>
+              </StackPanel>
+            </Border>
+
+            <Border Grid.Column="3" Background="White" CornerRadius="12" Padding="20" Margin="8,0,0,0">
+              <StackPanel Spacing="10">
+                <Border Background="#E3ECE5" CornerRadius="8" Width="40" Height="40" HorizontalAlignment="Left">
+                  <TextBlock Text="&#9733;" FontWeight="Bold" Foreground="#3F7A4C" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Border>
+                <TextBlock Text="Clientes VIP" FontWeight="Bold" Foreground="#1E3A26"/>
+                <TextBlock Text="18" FontSize="26" FontWeight="Bold" Foreground="#1E3A26"/>
+                <TextBlock Text="Programa de fidelidad" FontSize="12" Foreground="#6E8277"/>
+                <Button Background="#3F7A4C" CornerRadius="8" Padding="0,10" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+                  <TextBlock Text="Ver VIP" Foreground="White" FontWeight="Bold" FontSize="13"/>
+                </Button>
+              </StackPanel>
+            </Border>
+          </Grid>
+
+          <!-- Encabezado del Directorio Alineado (Título a la Izquierda, Botón a la Derecha) -->
+          <DockPanel LastChildFill="False" HorizontalAlignment="Stretch">
+            <TextBlock Text="Directorio de Clientes" FontSize="20" FontWeight="Bold" Foreground="#1E3A26" VerticalAlignment="Center" DockPanel.Dock="Left"/>
+            <Button Command="{Binding CreateNewCustomerShowCommand}" Background="#3F7A4C" CornerRadius="8" Padding="18,10" DockPanel.Dock="Right">
+              <TextBlock Text="Añadir Cliente" Foreground="White" FontWeight="Bold" FontSize="13"/>
+            </Button>
+          </DockPanel>
+
+          <!-- Tabla de Datos Completa -->
+          <Border Background="White" CornerRadius="12" ClipToBounds="True" HorizontalAlignment="Stretch">
+            <StackPanel>
+              <Grid Background="#3F7A4C" ColumnDefinitions="2*,2*,2*,*,*,*">
+                <TextBlock Grid.Column="0" Text="Nombre" Foreground="White" FontWeight="Bold" Padding="16,12"/>
+                <TextBlock Grid.Column="1" Text="Teléfono" Foreground="White" FontWeight="Bold" Padding="16,12"/>
+                <TextBlock Grid.Column="2" Text="Correo" Foreground="White" FontWeight="Bold" Padding="16,12"/>
+                <TextBlock Grid.Column="3" Text="Mascotas" Foreground="White" FontWeight="Bold" Padding="16,12"/>
+                <TextBlock Grid.Column="4" Text="Última Visita" Foreground="White" FontWeight="Bold" Padding="16,12"/>
+                <TextBlock Grid.Column="5" Text="Estado" Foreground="White" FontWeight="Bold" Padding="16,12"/>
+              </Grid>
+
+              <Grid ColumnDefinitions="2*,2*,2*,*,*,*" Background="White">
+                <TextBlock Grid.Column="0" Text="Angela Montenegro" Foreground="Black" Padding="16,12"/>
+                <TextBlock Grid.Column="1" Text="+505 8609 1243" Foreground="Black" Padding="16,12"/>
+                <TextBlock Grid.Column="2" Text="angela.montenegro@gmail.com" Foreground="Black" Padding="16,12"/>
+                <TextBlock Grid.Column="3" Text="1" Foreground="Black" Padding="16,12"/>
+                <TextBlock Grid.Column="4" Text="12/08/2026" Foreground="Black" Padding="16,12"/>
+                <TextBlock Grid.Column="5" Text="Normal" Foreground="#3F7A4C" FontWeight="Bold" Padding="16,12"/>
+              </Grid>
+            </StackPanel>
+          </Border>
+
+        </StackPanel>
+      </ScrollViewer>
+
+      <!-- VISTA 2: FORMULARIO DE REGISTRO DE CLIENTE (FULL WIDTH) -->
+      <ScrollViewer IsVisible="{Binding CreateNewCustomerIsVisible}">
+        <StackPanel Margin="32,24" Spacing="24" HorizontalAlignment="Stretch">
+          
+          <DockPanel LastChildFill="False" HorizontalAlignment="Stretch">
+            <TextBlock Text="Registro de Nuevo Cliente" FontSize="26" FontWeight="Bold" Foreground="#1E3A26" VerticalAlignment="Center" DockPanel.Dock="Left"/>
+            <Button Command="{Binding CancelCommand}" Background="#E3ECE5" CornerRadius="8" Padding="16,8" DockPanel.Dock="Right">
+              <TextBlock Text="Cancelar" Foreground="#1E3A26" FontWeight="Bold"/>
+            </Button>
+          </DockPanel>
+
+          <Border Background="White" CornerRadius="12" Padding="28" HorizontalAlignment="Stretch">
+            <StackPanel Spacing="20">
+
+              <!-- Primer y Segundo Nombre -->
+              <Grid ColumnDefinitions="*,24,*">
+                <StackPanel Grid.Column="0" Spacing="6">
+                  <TextBlock Text="Primer Nombre *" FontWeight="Bold" Foreground="#1E3A26"/>
+                  <TextBox Text="{Binding FirstName, Mode=TwoWay}" PlaceholderText="Ej. Juan"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" Spacing="6">
+                  <TextBlock Text="Segundo Nombre" FontWeight="Bold" Foreground="#1E3A26"/>
+                  <TextBox Text="{Binding SecondName, Mode=TwoWay}" PlaceholderText="Ej. Carlos (Opcional)"/>
+                </StackPanel>
+              </Grid>
+
+              <!-- Primer y Segundo Apellido -->
+              <Grid ColumnDefinitions="*,24,*">
+                <StackPanel Grid.Column="0" Spacing="6">
+                  <TextBlock Text="Primer Apellido *" FontWeight="Bold" Foreground="#1E3A26"/>
+                  <TextBox Text="{Binding FirstLastName, Mode=TwoWay}" PlaceholderText="Ej. Pérez"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" Spacing="6">
+                  <TextBlock Text="Segundo Apellido" FontWeight="Bold" Foreground="#1E3A26"/>
+                  <TextBox Text="{Binding SecondLastName, Mode=TwoWay}" PlaceholderText="Ej. Gómez (Opcional)"/>
+                </StackPanel>
+              </Grid>
+
+              <Grid ColumnDefinitions="*,24,*">
+                <StackPanel Grid.Column="0" Spacing="6">
+                  <TextBlock Text="Tipo de Identificación *" FontWeight="Bold" Foreground="#1E3A26"/>
+                  <ComboBox ItemsSource="{Binding IdentificationTypes}" 
+                            SelectedItem="{Binding SelectedIdentificationType}" 
+                            HorizontalAlignment="Stretch"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" Spacing="6">
+                  <TextBlock Text="Número de Identificación *" FontWeight="Bold" Foreground="#1E3A26"/>
+                  <TextBox Text="{Binding IdentificationNumber, Mode=TwoWay}" PlaceholderText="Ej. 001-000000-0000X"/>
+                </StackPanel>
+              </Grid>
+
+              <StackPanel Spacing="6">
+                <TextBlock Text="Dirección Habitación" FontWeight="Bold" Foreground="#1E3A26"/>
+                <TextBox Text="{Binding Address, Mode=TwoWay}" PlaceholderText="Ej. Del Banco 2c al sur..." AcceptsReturn="True" TextWrapping="Wrap" Height="80"/>
+              </StackPanel>
+
+              <TextBlock Text="{Binding ErrorMessage}" Foreground="#D32F2F" FontWeight="Bold" IsVisible="{Binding HasError}"/>
+              
+              <StackPanel Orientation="Horizontal" Spacing="12" HorizontalAlignment="Right" Margin="0,12,0,0">
+                <Button Command="{Binding CancelCommand}" Background="#E3ECE5" CornerRadius="8" Padding="20,10">
+                  <TextBlock Text="Cancelar" Foreground="#1E3A26" FontWeight="Bold"/>
+                </Button>
+                <Button Command="{Binding SaveCustomerCommand}" Background="#3F7A4C" CornerRadius="8" Padding="24,10">
+                  <TextBlock Text="Guardar Cliente" Foreground="White" FontWeight="Bold"/>
+                </Button>
+              </StackPanel>
+
+            </StackPanel>
+          </Border>
+        </StackPanel>
+      </ScrollViewer>
+    </Grid>
+  </DockPanel>
+</UserControl>

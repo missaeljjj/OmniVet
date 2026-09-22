@@ -1,0 +1,19 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:OmniVet.AvaloniaUI.ViewModels"
+        x:Class="OmniVet.AvaloniaUI.Views.MainWindow"
+        x:DataType="vm:MainViewModel"
+        Title="OmniVet"
+        Width="1366"
+        Height="800"
+        WindowStartupLocation="CenterScreen"
+        Icon= "avares://OmniVet.AvaloniaUI/Assets/OmniVetLogo.ico">
+
+    <Design.DataContext>
+      <vm:MainViewModel />
+    </Design.DataContext>
+    
+  <Grid>
+    <ContentControl Content="{Binding CurrentView}"/>
+  </Grid>
+</Window> 

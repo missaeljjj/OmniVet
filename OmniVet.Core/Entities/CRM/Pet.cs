@@ -1,23 +1,16 @@
 using OmniVet.Core.Shared;
 using OmniVet.Core.Exceptions;
 
-/*
-namespace OmniVet.Core.CRM
-{
+
+namespace OmniVet.Core.CRM;
     public class Pet : IEntity<int>
     {
         public int Id { get; }
 
-        public int IdCustomer
-        {
-            get;
-            set => field = value > 0
-                ? value
-                : throw new AppDomainUnloadedException("El IdCustomer es obligatorio.");
-        }
-        public int? IdBreed { get; set; } 
+        public int IdCustomer {get; protected set;}
+        public int IdBreed { get; protected set; } 
 
-        public int IdAnimal{get; set;}
+        public int IdAnimal{get; protected set;}
 
         public string Name
         {
@@ -27,13 +20,12 @@ namespace OmniVet.Core.CRM
                 : throw new AppDomainUnloadedException("El nombre de la mascota es obligatorio.");
         }
 
+        public char Gender {get; set;}
 
         public DateTime BirthDate { get; set;}
-        
-        public string Observations { get; set; }
 
-        public Pet(int idCustomer, int? idBreed, int idAnimal, string name,
-            DateTime birthDate, char gender, string observations)
+        public Pet(int idCustomer, int idBreed, int idAnimal, string name,
+            DateTime birthDate, char gender)
         {
             IdCustomer = idCustomer;
             IdBreed = idBreed;
@@ -41,8 +33,6 @@ namespace OmniVet.Core.CRM
             Name = name;
             BirthDate = birthDate;
             Gender = gender;
-            Observations = observations;
         }
     }
-}
-*/
+

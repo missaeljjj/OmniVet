@@ -9,7 +9,7 @@ public abstract class Transaction : IEntity<int>
 
     public int Total { get; }
 
-    public string State { get; set; }
+    public string State { get; set; } = "";
 
     public DateTime TransactionDate
     {

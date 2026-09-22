@@ -1,0 +1,133 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:vm="using:OmniVet.AvaloniaUI.ViewModels"
+             x:Class="OmniVet.AvaloniaUI.Views.SaleView"
+             x:DataType="vm:SaleViewModel">
+  <DockPanel Background="#F5FAF6">
+
+    <ScrollViewer>
+      <StackPanel Margin="32,24" Spacing="24">
+        <TextBlock Text="Gestión de Ventas" FontSize="28" FontWeight="Bold" Foreground="#1E3A26"/>
+
+        <Grid ColumnDefinitions="*,*,*,*">
+          <Border Grid.Column="0" Background="White" CornerRadius="12" Padding="20" Margin="0,0,8,0">
+            <StackPanel Spacing="10">
+              <Border Background="#E3ECE5" CornerRadius="8" Width="40" Height="40">
+                <TextBlock Text="8" FontWeight="Bold" Foreground="#3F7A4C" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+              <TextBlock Text="Ventas Hoy" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="8" FontSize="26" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="Transacciones" FontSize="12" Foreground="#6E8277"/>
+              <Button Background="#3F7A4C" CornerRadius="8" Padding="0,10" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+                <TextBlock Text="Crear Nueva Venta" Foreground="White" FontWeight="Bold" FontSize="13"/>
+              </Button>
+            </StackPanel>
+          </Border>
+
+          <Border Grid.Column="1" Background="White" CornerRadius="12" Padding="20" Margin="8,0">
+            <StackPanel Spacing="10">
+              <Border Background="#E3ECE5" CornerRadius="8" Width="40" Height="40">
+                <TextBlock Text="$" FontWeight="Bold" Foreground="#3F7A4C" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+              <TextBlock Text="Ingreso del Día" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="C$798.00" FontSize="26" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="Total acumulado" FontSize="12" Foreground="#6E8277"/>
+              <Button Background="#3F7A4C" CornerRadius="8" Padding="0,10" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+                <TextBlock Text="Ver Reporte" Foreground="White" FontWeight="Bold" FontSize="13"/>
+              </Button>
+            </StackPanel>
+          </Border>
+
+          <Border Grid.Column="2" Background="White" CornerRadius="12" Padding="20" Margin="8,0">
+            <StackPanel Spacing="10">
+              <Border Background="#E3ECE5" CornerRadius="8" Width="40" Height="40">
+                <TextBlock Text="~" FontWeight="Bold" Foreground="#3F7A4C" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+              <TextBlock Text="Ticket Promedio" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="C$99.75" FontSize="26" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="Por transacción" FontSize="12" Foreground="#6E8277"/>
+              <Button Background="#3F7A4C" CornerRadius="8" Padding="0,10" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+                <TextBlock Text="Ver Detalle" Foreground="White" FontWeight="Bold" FontSize="13"/>
+              </Button>
+            </StackPanel>
+          </Border>
+
+          <Border Grid.Column="3" Background="White" CornerRadius="12" Padding="20" Margin="8,0,0,0">
+            <StackPanel Spacing="10">
+              <Border Background="#E3ECE5" CornerRadius="8" Width="40" Height="40">
+                <TextBlock Text="&#9650;" FontWeight="Bold" Foreground="#3F7A4C" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+              </Border>
+              <TextBlock Text="Ventas del Mes" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="C$490,850.00" FontSize="22" FontWeight="Bold" Foreground="#1E3A26"/>
+              <TextBlock Text="Acumulado mensual" FontSize="12" Foreground="#6E8277"/>
+              <Button Background="#3F7A4C" CornerRadius="8" Padding="0,10" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center">
+                <TextBlock Text="Exportar" Foreground="White" FontWeight="Bold" FontSize="13"/>
+              </Button>
+            </StackPanel>
+          </Border>
+        </Grid>
+
+        <Grid ColumnDefinitions="*,Auto">
+          <TextBlock Grid.Column="0" Text="Historial de Ventas" FontSize="20" FontWeight="Bold" Foreground="#1E3A26" VerticalAlignment="Center"/>
+          <Button Grid.Column="1" Background="#3F7A4C" CornerRadius="8" Padding="18,10">
+            <TextBlock Text="Crear Nueva Venta" Foreground="White" FontWeight="Bold" FontSize="13"/>
+          </Button>
+        </Grid>
+
+        <Border Background="White" CornerRadius="12" ClipToBounds="True">
+          <StackPanel>
+            <Grid Background="#3F7A4C" ColumnDefinitions="*,2*,2*,*,*,*">
+              <TextBlock Grid.Column="0" Text="Fecha"  FontWeight="Bold" Padding="16,12"/>
+              <TextBlock Grid.Column="1" Text="Cliente"  FontWeight="Bold" Padding="16,12"/>
+              <TextBlock Grid.Column="2" Text="Producto / Servicio"  FontWeight="Bold" Padding="16,12"/>
+              <TextBlock Grid.Column="3" Text="Cant."  FontWeight="Bold" Padding="16,12"/>
+              <TextBlock Grid.Column="4" Text="Total"  FontWeight="Bold" Padding="16,12"/>
+              <TextBlock Grid.Column="5" Text="Estado"  FontWeight="Bold" Padding="16,12"/>
+            </Grid>
+
+            <Grid ColumnDefinitions="*,2*,2*,*,*,*" Background="White">
+              <TextBlock Grid.Column="0" Foreground="Black" Text="12/08" Padding="16,12"/>
+              <TextBlock Grid.Column="1" Foreground="Black" Text="Angela Montenegro" Padding="16,12"/>
+              <TextBlock Grid.Column="2" Foreground="Black" Text="Alimento Premium 15kg" Padding="16,12"/>
+              <TextBlock Grid.Column="3" Foreground="Black" Text="1" Padding="16,12"/>
+              <TextBlock Grid.Column="4" Foreground="Black" Text="C$50" Padding="16,12"/>
+              <TextBlock Grid.Column="5" Text="Pagado" Foreground="#3F7A4C" FontWeight="Bold" Padding="16,12"/>
+            </Grid>
+            <Grid ColumnDefinitions="*,2*,2*,*,*,*" Background="#F5FAF6">
+              <TextBlock Grid.Column="0" Foreground="Black" Text="12/08" Padding="16,12"/>
+              <TextBlock Grid.Column="1" Foreground="Black" Text="Lena Silver" Padding="16,12"/>
+              <TextBlock Grid.Column="2" Foreground="Black" Text="Consulta General" Padding="16,12"/>
+              <TextBlock Grid.Column="3" Foreground="Black" Text="1" Padding="16,12"/>
+              <TextBlock Grid.Column="4" Foreground="Black" Text="C$80.00" Padding="16,12"/>
+              <TextBlock Grid.Column="5" Text="Pagado" Foreground="#3F7A4C" FontWeight="Bold" Padding="16,12"/>
+            </Grid>
+            <Grid ColumnDefinitions="*,2*,2*,*,*,*" Background="White">
+              <TextBlock Grid.Column="0" Foreground="Black" Text="12/08" Padding="16,12"/>
+              <TextBlock Grid.Column="1" Foreground="Black" Text="Jack Hodgins" Padding="16,12"/>
+              <TextBlock Grid.Column="2" Foreground="Black" Text="Vacuna Antirrábica" Padding="16,12"/>
+              <TextBlock Grid.Column="3" Foreground="Black" Text="1" Padding="16,12"/>
+              <TextBlock Grid.Column="4" Foreground="Black" Text="C$98.00" Padding="16,12"/>
+              <TextBlock Grid.Column="5" Text="Pendiente" Foreground="#B08900" FontWeight="Bold" Padding="16,12"/>
+            </Grid>
+            <Grid ColumnDefinitions="*,2*,2*,*,*,*" Background="#F5FAF6">
+              <TextBlock Grid.Column="0" Foreground="Black" Text="11/08" Padding="16,12"/>
+              <TextBlock Grid.Column="1" Foreground="Black" Text="Carolina González" Padding="16,12"/>
+              <TextBlock Grid.Column="2" Foreground="Black" Text="Shampoo Antipulgas" Padding="16,12"/>
+              <TextBlock Grid.Column="3" Foreground="Black" Text="2" Padding="16,12"/>
+              <TextBlock Grid.Column="4" Foreground="Black" Text="C$320.00" Padding="16,12"/>
+              <TextBlock Grid.Column="5" Text="Pagado" Foreground="#3F7A4C" FontWeight="Bold" Padding="16,12"/>
+            </Grid>
+            <Grid ColumnDefinitions="*,2*,2*,*,*,*" Background="White">
+              <TextBlock Grid.Column="0" Foreground="Black" Text="11/08" Padding="16,12"/>
+              <TextBlock Grid.Column="1" Foreground="Black" Text="Luis Fernández" Padding="16,12"/>
+              <TextBlock Grid.Column="2" Foreground="Black" Text="Cirugía Menor" Padding="16,12"/>
+              <TextBlock Grid.Column="3" Foreground="Black" Text="1" Padding="16,12"/>
+              <TextBlock Grid.Column="4" Foreground="Black" Text="C$250.00" Padding="16,12"/>
+              <TextBlock Grid.Column="5" Text="Pagado" Foreground="#3F7A4C" FontWeight="Bold" Padding="16,12"/>
+            </Grid>
+          </StackPanel>
+        </Border>
+      </StackPanel>
+    </ScrollViewer>
+  </DockPanel>
+</UserControl>
